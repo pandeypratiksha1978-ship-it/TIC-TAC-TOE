@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-clr: #eaebeb;
+  --header-bg-clr: #2f78bc;
+  --replay-bg-clr: #2f78bc;
+  --header-txt-clr: #fff;
+  --txt-clr: #272c37;
+  --grid-cell-clr: #fff;
+  --grid-cell-hover-clr: #f5f5f5;
+  --endgame-txt-clr: #ededed;
+  --modal-bg-clr: #f3f3f3;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-clr);
+}
+
+header {
+  background-color: var(--header-bg-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+header > h1 {
+  color: var(--header-txt-clr);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.mode-btn {
+  background-color: var(--replay-bg-clr);
+  border: none;
+  color: var(--header-txt-clr);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mode-title {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+main > .game-info {
+  font-size: 1.5rem;
+}
+
+main > #game-board {
+  height: 395px;
+  width: 395px;
+  display: grid;
+  grid-template-columns: repeat(3, 125px);
+  grid-template-rows: repeat(3, 125px);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+main > #game-board .grid-cell {
+  cursor: pointer;
+
+  background-color: var(--grid-cell-clr);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 200%;
+  font-weight: 500;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+main > #game-board .grid-cell:hover {
+  background-color: var(--grid-cell-hover-clr);
+}
+
+main > .game-info > #game-info-txt {
+  font-weight: 500;
+  color: var(--txt-clr);
+}
+
+main > .modal {
+  width: max(20%, 200px);
+  padding: 30px 20px;
+  border: none;
+  border-radius: 16px;
+  margin: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  background-color: var(--modal-bg-clr);
+}
+
+main > .modal > .modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+main > .modal .endgame-msg {
+  font-size: 1.5rem;
+  color: var(--txt-clr);
+  text-align: center;
+}
+
+main > .modal .replay-game {
+  font-size: 1.2rem;
+  color: var(--endgame-txt-clr);
+  border: none;
+  padding: 12px 24px;
+  background-color: var(--replay-bg-clr);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 8px 16px;
+  color: var(--txt-clr);
+  font-weight: 400;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  main > #game-board {
+    height: 260px;
+    width: 260px;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+  }
+
+  main > #game-board .grid-cell {
+    font-size: 160%;
+  }
+}
